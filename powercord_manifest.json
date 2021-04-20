@@ -1,0 +1,8 @@
+{
+    "name": "Server-List Drawer",
+    "version": "1.0.0",
+    "author": "Freeplay#5676",
+    "theme": "theme.theme.css",
+    "license": "MIT",
+    "description": "A server-list drawer for Discord."
+}
