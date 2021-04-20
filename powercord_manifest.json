@@ -3,6 +3,6 @@
     "version": "1.0.0",
     "author": "Freeplay#5676",
     "theme": "theme.theme.css",
-    "license": "MIT",
+    "license": "GNU General Public License v3.0",
     "description": "A server-list drawer for Discord."
 }
