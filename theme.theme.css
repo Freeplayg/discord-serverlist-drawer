@@ -2,12 +2,16 @@
 
  * @name        Server-list Drawer
  * @author      Freeplay#5676
- * @version     1.0.0
+ * @version     1.0.1
  * @description A server-list drawer for Discord!
  * @authorId    158296466119458816
  * @source      https://github.com/Freeplayg/discord-serverlist-drawer
 
 **/
+
+/* 1.0.1
+- Quick fix on Windows 
+ */
 
 [class*="wrapper-"][class*="guilds-"] {
     position: fixed;
@@ -18,6 +22,9 @@
     transition: left .1s, margin-left .3s, width .15s !important;
     margin-top: 48px;
     background-color: var(--background-secondary-alt) !important;
+}
+.platform-win [class*="wrapper-"][class*="guilds-"] {
+    top: 22px !important;
 }
 [class*="wrapper-"][class*="guilds-"]::before {
     content: attr(aria-label);
