@@ -2,15 +2,17 @@
 
  * @name        Server-list Drawer
  * @author      Freeplay#5676
- * @version     1.0.1
+ * @version     1.0.2
  * @description A server-list drawer for Discord!
  * @authorId    158296466119458816
  * @source      https://github.com/Freeplayg/discord-serverlist-drawer
 
 **/
 
-/* 1.0.1
-- Quick fix on Windows 
+/* 1.0.2
+- Added Unread Indicators
+- Disabled transition on Reduced Motion
+- Fixed friend request indicator
  */
 
 [class*="wrapper-"][class*="guilds-"] {
@@ -25,6 +27,10 @@
 }
 .platform-win [class*="wrapper-"][class*="guilds-"] {
     top: 22px !important;
+}
+.reduce-motion [class*="wrapper-"][class*="guilds-"],
+.reduce-motion [class*="wrapper-"][class*="guilds-"]::before {
+    transition: opacity .1s !important;
 }
 [class*="wrapper-"][class*="guilds-"]::before {
     content: attr(aria-label);
@@ -117,8 +123,8 @@
     padding-bottom: 2px;
 }
 [class*="wrapper-"][class*="guilds-"] [class*="tutorialContainer-"]:first-child [class*="listItemWrapper-"] [class*="wrapper"] [class*="lowerBadge-"] {
-    bottom: 6px;
-    right: 6px;
+    bottom: 6.5px;
+    right: -4px;
     box-shadow: 0 0 0 3px var(--background-secondary);
     border-radius: 100%;
 }
@@ -140,9 +146,14 @@
     justify-content: flex-start;
 }
 /* Attempt at an unread messages indicator. */
-/* [class*="wrapper-"][class*="guilds-"] .unread::before,
-[class*="wrapper-"][class*="guilds-"] .mentioned::before {
+[class*="wrapper-"][class*="guilds-"] [class*="tutorialContainer-"] + div[style*="transform: scale(1);"] {
+    transform: unset !important;
+}
+[class*="wrapper-"][class*="guilds-"] .unread:not(.selected)::before,
+[class*="wrapper-"][class*="guilds-"] .mentioned:not(.selected)::before,
+[class*="wrapper-"][class*="guilds-"] [class*="tutorialContainer-"] + div[style*="transform: scale(1);"]::before {
     content: "";
+    transform: scale(0);
     position: fixed;
     top: 25px;
     left: 35px;
@@ -153,11 +164,20 @@
     border: 2px solid var(--background-secondary);
     z-index: 101;
     pointer-events: none;
+    transition: transform .1s;
 }
-[class*="wrapper-"][class*="guilds-"] .mentioned::before {
+[class*="wrapper-"][class*="guilds-"]:not(:hover) .unread:not(.selected)::before,
+[class*="wrapper-"][class*="guilds-"]:not(:hover) .mentioned:not(.selected)::before,
+[class*="wrapper-"][class*="guilds-"]:not(:hover) [class*="tutorialContainer-"] + div[style*="transform: scale(1);"]::before {
+    transform: scale(1);
+}
+[class*="wrapper-"][class*="guilds-"] .mentioned:not(.selected)::before,
+[class*="wrapper-"][class*="guilds-"] [class*="tutorialContainer-"] + div[style*="transform: scale(1);"]::before {
     background-color: rgb(240, 71, 71) !important;
     z-index: 102;
-} */
+}
+
+
 
 [class*="wrapper-"][class*="guilds-"] [class*="listItem-"] [class*="childWrapper-"] {
     border-radius: 15px !important;
