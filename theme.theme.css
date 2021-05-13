@@ -2,17 +2,15 @@
 
  * @name        Server-list Drawer
  * @author      Freeplay#5676
- * @version     1.0.2
+ * @version     1.0.3
  * @description A server-list drawer for Discord!
  * @authorId    158296466119458816
  * @source      https://github.com/Freeplayg/discord-serverlist-drawer
 
 **/
 
-/* 1.0.2
-- Added Unread Indicators
-- Disabled transition on Reduced Motion
-- Fixed friend request indicator
+/* 1.0.3
+- Finally, Fixes!
  */
 
 [class*="wrapper-"][class*="guilds-"] {
@@ -120,7 +118,7 @@
     /* padding-bottom: 7px; */
     padding-left: 17px;
     padding-right: 4px;
-    padding-bottom: 2px;
+    padding-bottom: 0px;
 }
 [class*="wrapper-"][class*="guilds-"] [class*="tutorialContainer-"]:first-child [class*="listItemWrapper-"] [class*="wrapper"] [class*="lowerBadge-"] {
     bottom: 6.5px;
@@ -265,10 +263,11 @@
     opacity: 1;
 }
 
-[class*="wrapper-"][class*="guilds-"] [class*="circleButtonMask-"] foreignObject {
+[class*="wrapper-"][class*="guilds-"] [class*="scroller-"] > [class*="tutorialContainer-"]:nth-last-child(3) foreignObject,
+[class*="wrapper-"][class*="guilds-"] [class*="scroller-"] > [class*="listItem-"]:nth-last-child(2) foreignObject {
     overflow: visible !important;
     mask: unset !important;
-    width: 215px;
+    width: 215px !important;
 }
 [class*="wrapper-"][class*="guilds-"] [class*="circleIconButton-"] {
     width: 100%;
