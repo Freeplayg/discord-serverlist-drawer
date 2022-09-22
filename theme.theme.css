@@ -3,15 +3,15 @@
 
  * @name        Server-list Drawer
  * @author      Freeplay#5676
- * @version     1.0.5
+ * @version     1.0.6
  * @description A server-list drawer for Discord!
  * @authorId    158296466119458816
  * @source      https://github.com/Freeplayg/discord-serverlist-drawer
 
 **/
 
-/* 1.0.5
-- Fixed!
+/* 1.0.6
+- Forgot about DM's oopsies
 */
 
 [class*="wrapper-"][class*="guilds-"] {
@@ -182,10 +182,11 @@
     border-radius: 15px !important;
 }
 [class*="wrapper-"][class*="guilds-"] [class*="listItem-"] [class*="blobContainer"] > div,
+[class*="wrapper-"][class*="guilds-"] [class*="listItem-"] [class*="pill"] + [class*="listItemWrapper"] > div,
 [class*="wrapper-"][class*="guilds-"] [class*="listItem-"] [data-dnd-name] > div,
 [class*="wrapper-"][class*="guilds-"] [class*="listItem-"] [class*="placeholderMask-"],
-[class*="wrapper-"][class*="guilds-"] [class*="scroller-"] > [class*="tutorialContainer-"],
-[class*="wrapper-"][class*="guilds-"] [class*="scroller-"] > [class*="listItem-"] {
+[class*="wrapper-"][class*="guilds-"] [class*="scroller-"] > [class*="tutorialContainer-"]
+{
     margin-inline: 12px;
     border-radius: 15px;
     overflow: visible !important;
